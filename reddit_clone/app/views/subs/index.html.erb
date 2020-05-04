@@ -1,0 +1,19 @@
+<% if logged_in? %>
+<ul>
+    <li><%= current_user.username %>
+    <br> 
+    <a href="<%= new_sub_url %>">Create a sub!</a>
+    <br>
+    <a href="<%= subs_url %>">All subs!</a></li>
+</ul>
+<% end %>
+
+<h1>All the Subs!</h1>
+
+<ul>
+    <% @subs.each do |sub| %>
+        <li>
+           <a href="<%= sub_url(sub) %>"> <%= sub.title %></a>
+        </li>
+    <% end %>
+</ul>

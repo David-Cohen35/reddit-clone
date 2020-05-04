@@ -1,0 +1,30 @@
+<% if logged_in? %>
+<ul>
+    <li><%= current_user.username %><br>
+    
+    <a href="<%= new_sub_url %>">Create a sub!</a><br>
+    
+    <a href="<%= subs_url %>">All subs!</a></li>
+</ul>
+<% end %>
+
+
+<h2>
+    <%= @sub.title %>
+</h2>
+
+<h3>
+    <p>Description</p>
+</h3>
+
+<p><%= @sub.description %></p>
+
+<a href="<%= new_post_url %>">Make a new post!</a>
+    <ul>
+        <% @sub.posts.each do |post| %>
+            <li><a href="<% post_url(post) %>"><%= post.title %></a></li>
+        <% end %>
+
+    </ul>
+
+<a href="<%= edit_post_url %>">Edit!</a>
